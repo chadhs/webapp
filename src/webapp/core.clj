@@ -1,6 +1,15 @@
-(ns webapp.core)
+(ns webapp.core
+  (:require [ring.adapter.jetty :as jetty]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn handler [request]
+  {:status 200
+   :headers {"Content-Type" "text/html"}
+   :body "Hello World"})
+
+(defn -main
+  ([]
+   (-main 8000))
+  ([port]
+   (jetty/run-jetty
+    handler
+    {:port (Integer. port)})))
