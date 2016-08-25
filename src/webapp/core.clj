@@ -1,11 +1,13 @@
 (ns webapp.core
   (:require [webapp.route :refer [routes]])
   (:require [ring.adapter.jetty :as jetty]
-            [ring.middleware.reload :refer [wrap-reload]])
+            [ring.middleware.reload :refer [wrap-reload]]
+            [ring.middleware.json :refer [wrap-json-response]])
   (:gen-class))
 
 (def app
-  (-> routes))
+  (-> routes
+      wrap-json-response))
 
 (defn -main
   ([] (-main 8000))
