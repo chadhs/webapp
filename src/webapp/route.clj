@@ -7,8 +7,8 @@
             [ring.handler.dump :refer [handle-dump]]))
 
 (defroutes routes
-  (GET "/" [] handle-index)
-  (GET "/clojure-mke" [] handle-meetup)
-  (GET "/request" [] handle-dump)
-  (GET "/whoami" [] handle-bourne)
-  (not-found "Page not found."))
+  (GET "/"                    [] handle-index)
+  (GET "/meetup/:meetup-name" [] handle-meetup)
+  (GET "/request"             [] handle-dump)
+  (GET "/whoami"              [] handle-bourne)
+  (not-found                     "Page not found."))

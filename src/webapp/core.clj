@@ -2,11 +2,13 @@
   (:require [webapp.route :refer [routes]])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
+            [ring.middleware.params :refer [wrap-params]]
             [ring.middleware.json :refer [wrap-json-response]])
   (:gen-class))
 
 (def app
   (-> routes
+      wrap-params
       wrap-json-response))
 
 (defn -main
