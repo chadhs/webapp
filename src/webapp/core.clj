@@ -1,5 +1,6 @@
 (ns webapp.core
-  (:require [ring.adapter.jetty :as jetty]))
+  (:require [ring.adapter.jetty :as jetty])
+  (:gen-class))
 
 (defn handler [request]
   {:status 200
