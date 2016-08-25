@@ -1,16 +1,11 @@
 (ns webapp.core
+  (:require [webapp.route :refer [routes]])
   (:require [ring.adapter.jetty :as jetty])
   (:gen-class))
 
-(defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "Hello World"})
+(def app
+  (-> routes))
 
 (defn -main
-  ([]
-   (-main 8000))
-  ([port]
-   (jetty/run-jetty
-    handler
-    {:port (Integer. port)})))
+  ([] (-main 8000))
+  ([port] (jetty/run-jetty app {:port (Integer. port)})))
