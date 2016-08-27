@@ -1,14 +1,12 @@
 # webapp
 
-A Clojure library designed to ... well, that part is up to you.
+An simple example webapp written in Clojure used during the "Getting Started with Clojure Web Development - Part 1" presentation at the Clojure MKE meetup.
 
 ## Usage
 
-FIXME
+To run the app locally simply use `lein run`.
 
-## License
+To explore the app through it's stages of being built use `git tag -l` to see a named list of app states.
 
-Copyright © 2016 FIXME
+Then use `git checkout <tag-name>` to examine the code in the desired state/stage.
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
